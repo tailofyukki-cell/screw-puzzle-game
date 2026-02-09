@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ネジ外しゲーム - Screw Puzzle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- ヘッダー -->
+        <header id="game-header">
+            <div class="header-left">
+                <h1>🧩 ネジ外しゲーム</h1>
+            </div>
+            <div class="header-right">
+                <button id="settings-btn" class="icon-btn">⚙️</button>
+            </div>
+        </header>
+
+        <!-- ゲーム情報 -->
+        <div id="game-info">
+            <div class="info-item">
+                <span class="info-label">ステージ</span>
+                <span id="stage-number" class="info-value">1</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">残りネジ</span>
+                <span id="remaining-screws" class="info-value">0</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">ポイント</span>
+                <span id="points" class="info-value">0</span>
+            </div>
+        </div>
+
+        <!-- アイテムバー -->
+        <div id="item-bar">
+            <button class="item-btn" data-item="hint">
+                <span class="item-icon">💡</span>
+                <span class="item-name">ヒント</span>
+                <span class="item-count" id="hint-count">2</span>
+            </button>
+            <button class="item-btn" data-item="expose">
+                <span class="item-icon">🔍</span>
+                <span class="item-name">露出チェック</span>
+                <span class="item-count" id="expose-count">2</span>
+            </button>
+            <button class="item-btn" data-item="drill">
+                <span class="item-icon">🔨</span>
+                <span class="item-name">ドリル</span>
+                <span class="item-count" id="drill-count">2</span>
+            </button>
+            <button class="item-btn" data-item="shuffle">
+                <span class="item-icon">🔄</span>
+                <span class="item-name">シャッフル</span>
+                <span class="item-count" id="shuffle-count">2</span>
+            </button>
+        </div>
+
+        <!-- ゲームキャンバス -->
+        <div id="canvas-wrapper">
+            <canvas id="game-canvas"></canvas>
+        </div>
+
+        <!-- メッセージ表示 -->
+        <div id="message-overlay" class="hidden">
+            <div id="message-content"></div>
+        </div>
+
+        <!-- 設定モーダル -->
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>設定</h2>
+                    <button class="close-btn" id="close-settings">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-item">
+                        <label>BGM音量</label>
+                        <input type="range" id="bgm-volume" min="0" max="100" value="50">
+                        <span id="bgm-volume-value">50%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>SE音量</label>
+                        <input type="range" id="se-volume" min="0" max="100" value="70">
+                        <span id="se-volume-value">70%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>BGM ON/OFF</label>
+                        <button id="bgm-toggle" class="toggle-btn active">ON</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>SE ON/OFF</label>
+                        <button id="se-toggle" class="toggle-btn active">ON</button>
+                    </div>
+                    <hr>
+                    <div class="setting-item">
+                        <h3>BGMパック</h3>
+                        <div id="bgm-packs">
+                            <div class="pack-item unlocked" data-pack="default">
+                                <span class="pack-name">デフォルト</span>
+                                <span class="pack-status">✓</span>
+                            </div>
+                            <div class="pack-item locked" data-pack="workshop">
+                                <span class="pack-name">作業場</span>
+                                <span class="pack-cost">🔒 1000pt</span>
+                            </div>
+                            <div class="pack-item locked" data-pack="nature">
+                                <span class="pack-name">自然</span>
+                                <span class="pack-cost">🔒 1500pt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- クリア演出モーダル -->
+        <div id="clear-modal" class="modal hidden">
+            <div class="modal-content clear-content">
+                <h2>🎉 ステージクリア!</h2>
+                <div class="clear-stats">
+                    <p>ステージ <span id="cleared-stage">1</span> をクリアしました!</p>
+                    <p>獲得ポイント: <span id="earned-points">100</span></p>
+                </div>
+                <button id="next-stage-btn" class="primary-btn">次のステージへ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- スクリプト読み込み -->
+    <script src="js/storageManager.js"></script>
+    <script src="js/pointSystem.js"></script>
+    <script src="js/audioManager.js"></script>
+    <script src="js/collisionDetector.js"></script>
+    <script src="js/plateSystem.js"></script>
+    <script src="js/stageGenerator.js"></script>
+    <script src="js/itemManager.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/gameEngine.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
