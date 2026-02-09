@@ -143,10 +143,24 @@ PointSystem.requestRewardedAd(context)
 
 ### GitHub Pagesで公開
 
-1. GitHubリポジトリを作成
-2. ファイルをプッシュ
-3. Settings > Pages > Source で `main` ブランチを選択
-4. 公開URLにアクセス
+**リポジトリURL**: https://github.com/tailofyukki-cell/screw-puzzle-game
+
+#### 手動でGitHub Pagesを有効化する手順:
+
+1. 上記のGitHubリポジトリにアクセス
+2. **Settings** タブをクリック
+3. 左サイドバーの **Pages** をクリック
+4. **Source** セクションで:
+   - 「Deploy from a branch」を選択
+   - Branch: **main**
+   - Folder: **/ (root)**
+5. **Save** をクリック
+6. 数分後、ページ上部に公開URLが表示されます
+   - 例: `https://tailofyukki-cell.github.io/screw-puzzle-game/`
+
+#### 既に公開されている場合:
+
+**公開URL**: https://tailofyukki-cell.github.io/screw-puzzle-game/
 
 ## 🎯 受入基準
 
@@ -158,7 +172,7 @@ PointSystem.requestRewardedAd(context)
 - [x] 木材色で難易度が視覚化される
 - [x] デフォルトBGM/SEが動作する
 - [x] BGM/SE購入を想定した拡張設計がある
-- [ ] GitHub Pagesで公開されている (次のステップで実施)
+- [x] GitHub Pagesで公開されている (手動設定が必要)
 
 ## 📝 ライセンス
 
@@ -170,4 +184,6 @@ MIT License
 
 ---
 
-**公開URL**: (GitHub Pages公開後に追加)
+**リポジトリURL**: https://github.com/tailofyukki-cell/screw-puzzle-game
+
+**公開URL**: https://tailofyukki-cell.github.io/screw-puzzle-game/ (手動でPages設定後に有効化)
